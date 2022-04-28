@@ -12,6 +12,6 @@ git clone https://github.com/Hardwaregore/AutomaticGitCloner && cd AutomaticGitC
 Then you will use AGC to install ssh-mgr:
 
 ``` shell
-agc install GitHubWebSync && cd GitHubWebSync chmod 777 * && mv sync /bin && cd ~ && rm -rf GitHubWebSync
+agc install GitHubWebSync
 ```
 
