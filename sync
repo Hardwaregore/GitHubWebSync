@@ -1,13 +1,29 @@
 #!/bin/bash
 
-git clone https://github.com/$1/$2
+webserverdir=your_webserver_directory
+projectlocation=your_git_repo_link
+projectname=your_repo_name
+automaticpullafter=pull_after
 
-cd $2
+if [ webserverdir == "your_webserver_directory" || projectlocation == "your_git_repo_link" || projectname == "your_repo_name" || automaticpullafter == "pull_after" ]; then
+echo "Please set the variables inside the file. Aborting..."
+exit
+fi
 
-rm -rf LICENSE README.md
+while true; do
 
-mv * /var/www/html
+git clone $projectlocation
 
-sudo systemctl restart apache2
+cd $projectname
 
-sudo systemctl status apache2.service
+mv * $webserverdir
+
+rm -rf ../$projectname
+
+cd ~
+
+sleep $automaticpullafter
+
+done
+
+
